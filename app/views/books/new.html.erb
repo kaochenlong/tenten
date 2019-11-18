@@ -1,1 +1,27 @@
 <h1>新增書本</h1>
+
+<%= form_for(@book) do |form| %>
+  <%= form.label :title, '標題' %>
+  <%= form.text_field :title %>
+
+  <%= form.label :description, '內容' %>
+  <%= form.text_area :description %>
+
+  <%= form.label :list_price, '售價' %>
+  <%= form.number_field :list_price %>
+
+  <%= form.label :sell_price, '特價' %>
+  <%= form.number_field :sell_price %>
+
+  <%= form.label :page_num, '頁數' %>
+  <%= form.number_field :page_num %>
+
+  <%= form.label :isbn, 'ISBN' %>
+  <%= form.text_field :isbn %>
+
+  <%= form.label :isbn13, 'ISBN-13' %>
+  <%= form.text_field :isbn13 %>
+
+  <%= form.submit %>
+<% end %>
+
