@@ -5,9 +5,11 @@
 <ul>
 <% @books.each do |book| %>
   <li>
-    <%= book.title %>
+    <%= link_to book.title, book_path(book) %>
     <%= link_to "編輯", edit_book_path(book) %>
-    <%= link_to "刪除", book_path(book), method: 'delete' %>
+    <%= link_to "刪除", book_path(book), 
+                        method: 'delete', 
+                        data: {confirm: '確定嗎?'} %>
   </li>
 <% end %>
 </ul>
