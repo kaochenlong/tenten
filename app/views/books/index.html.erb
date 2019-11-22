@@ -1,3 +1,13 @@
 <h1>書本列表</h1>
 
 <%= link_to "新增書本", new_book_path %>
+
+<ul>
+<% @books.each do |book| %>
+  <li>
+    <%= book.title %>
+    <%= link_to "編輯", edit_book_path(book) %>
+    <%= link_to "刪除", book_path(book), method: 'delete' %>
+  </li>
+<% end %>
+</ul>
