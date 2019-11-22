@@ -10,7 +10,11 @@
   </head>
 
   <body>
-    <%= notice %>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <%= render 'shared/flash' if notice %>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>
