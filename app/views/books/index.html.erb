@@ -1,10 +1,10 @@
-<h1 class="title">書本列表</h1>
+<h1 class="title"><i class="fas fa-book"></i> 書本列表</h1>
 
 <%= link_to "新增書本", new_book_path, class: 'button is-danger' %>
 
 <section class="columns is-multiline">
 <% @books.each do |book| %>
-  <div class="column is-4">
+  <div class="column is-3">
     <div class="card">
       <div class="card-image">
         <figure class="image">
@@ -25,10 +25,10 @@
         </div>
 
         <div class="content">
-          <%= book.description %> <a>@bulmaio</a>.
-          <a href="#">#css</a> <a href="#">#responsive</a>
-          <br>
+          <%= book.description %>
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          <hr>
+          <%= link_to "編輯", edit_book_path(book), class: 'button is-light is-small' %>
         </div>
       </div>
     </div>
