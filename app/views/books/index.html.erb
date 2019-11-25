@@ -8,11 +8,7 @@
     <div class="card">
       <div class="card-image">
         <figure class="image">
-          <% if book.cover_image.attached? %>
-            <%= image_tag book.cover_image.variant(resize_to_limit: [300, 300]) %>
-          <% else %>
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-          <% end %>
+          <%= cover_image_tag book, width: 300, height: 300, dummy_img: true %>
         </figure>
       </div>
       <div class="card-content">
