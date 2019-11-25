@@ -8,6 +8,14 @@
 
 <%= form_for(book) do |form| %>
   <div class="field">
+
+    <%= image_tag book.cover_image if book.cover_image.attached? %>
+
+    <%= form.label :cover_image, '封面', class: 'label' %>
+    <%= form.file_field :cover_image, class: 'input' %>
+  </div>
+
+  <div class="field">
     <%= form.label :title, '標題', class: 'label' %>
     <%= form.text_field :title, class: 'input' %>
   </div>
@@ -51,6 +59,11 @@
         <%= form.text_field :isbn13, class: 'input' %>
       </div>
     </div>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :on_sell %>
+    <%= form.label :on_sell, '是否上架？', class: 'checkbox' %>
   </div>
 
   <div class="field">
