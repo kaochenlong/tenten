@@ -53,6 +53,7 @@ class BooksController < ApplicationController
                                  :isbn,
                                  :isbn13, 
                                  :cover_image, 
-                                 :on_sell)
+                                 :on_sell, 
+                                 :published_at)
   end
 end
