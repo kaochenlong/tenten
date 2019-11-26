@@ -1,6 +1,6 @@
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <%= link_to root_path, class: 'navbar-item' do %>
+    <%= link_to admin_root_path, class: 'navbar-item' do %>
       <i class="fas fa-book"></i>
     <% end %>
 
@@ -13,7 +13,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <%= link_to "書本列表", books_path, class: 'navbar-item' %>
+      <%= link_to "書本列表", admin_books_path, class: 'navbar-item' %>
     </div>
 
     <div class="navbar-end">
