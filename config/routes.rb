@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'books#index'
 
   namespace :admin do
-    root 'books#index'   # /admin/
-    resources :books     # /admin/books
+    root 'books#index' 
+    resources :books
+    resources :publishers, except: [:show]
   end
 end

@@ -1,0 +1,30 @@
+<h1 class="title">
+  <i class="fas fa-cash-register"></i> 出版社
+  <%= link_to "新增出版社", new_admin_publisher_path, class: 'button is-danger' %>
+</h1>
+
+<table class="table is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>電話</th>
+      <th>地址</th>
+      <th>狀態</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @publishers.each do |publisher| %>
+      <tr>
+        <td><%= link_to publisher.name, edit_admin_publisher_path(publisher) %></td>
+        <td><%= publisher.tel %></td>
+        <td><%= publisher.address %></td>
+        <td><%= publisher.online %></td>
+        <td>
+          <%= link_to "編輯", edit_admin_publisher_path(publisher), class: 'button is-light is-small' %>
+          <%= link_to "刪除", admin_publisher_path(publisher), method: :delete, data: {confirm: '確認刪除!?'}, class: 'button is-danger is-small' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
