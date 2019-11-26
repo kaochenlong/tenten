@@ -15,9 +15,21 @@
     <%= form.file_field :cover_image, class: 'input' %>
   </div>
 
-  <div class="field">
-    <%= form.label :title, '標題', class: 'label' %>
-    <%= form.text_field :title, class: 'input' %>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="field">
+        <%= form.label :title, '標題', class: 'label' %>
+        <%= form.text_field :title, class: 'input' %>
+      </div>
+    </div>
+    <div class="column is-4">
+      <div class="field">
+        <%= form.label :publisher_id, '出版社', class: 'label' %>
+        <div class="select is-fullwidth">
+          <%= form.collection_select :publisher_id, Publisher.all, :id, :name %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="field">

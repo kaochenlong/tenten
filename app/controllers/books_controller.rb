@@ -27,7 +27,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to root_path, notice: '更新成功'
+      redirect_to edit_book_path(@book), notice: '更新成功'
     else
       render :edit
     end
@@ -54,6 +54,7 @@ class BooksController < ApplicationController
                                  :isbn13, 
                                  :cover_image, 
                                  :on_sell, 
-                                 :published_at)
+                                 :published_at, 
+                                 :publisher_id)
   end
 end
