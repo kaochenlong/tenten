@@ -20,7 +20,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
-            <a class="button"><%= current_user.email %></a>
+            <%= link_to current_user.email, edit_user_registration_path, class: 'button' %>
             <%= link_to "登出", destroy_user_session_path, method: 'delete', class: 'button is-light' %>
           <% else %>
             <%= link_to "註冊", new_user_registration_path, class: 'button is-primary' %>
