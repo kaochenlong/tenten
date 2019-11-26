@@ -13,7 +13,7 @@ module BookHelper
 
   private
   def generate_cover_image(book, width, height)
-    image_tag book.cover_image.variant(resize_to_limit: [width, height])
+    image_tag book.cover_image.variant(resize: "#{width}x#{height}>", extent: "#{width}x#{height}")
   end
 end
 

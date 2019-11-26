@@ -1,4 +1,4 @@
-import 'flatpickr/dist/flatpickr.min.css'
+import '../stylesheets/datepicker.scss'
 
 import flatpickr from 'flatpickr'
 
