@@ -1,6 +1,6 @@
 <h1 class="title"><i class="fas fa-book"></i> 書本列表</h1>
 
-<%= link_to "新增書本", new_book_path, class: 'button is-danger' %>
+<%= link_to "新增書本", new_admin_book_path, class: 'button is-danger' %>
 
 <%= paginate @books %>
 
@@ -30,7 +30,7 @@
           <%= book.description %>
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           <hr>
-          <%= link_to "編輯", edit_book_path(book), class: 'button is-light is-small' %>
+          <%= link_to "編輯", edit_admin_book_path(book), class: 'button is-light is-small' %>
         </div>
       </div>
     </div>
