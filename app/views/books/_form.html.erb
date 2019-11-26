@@ -26,7 +26,7 @@
       <div class="field">
         <%= form.label :publisher_id, '出版社', class: 'label' %>
         <div class="select is-fullwidth">
-          <%= form.collection_select :publisher_id, Publisher.all, :id, :name %>
+          <%= form.collection_select :publisher_id, Publisher.available, :id, :name %>
         </div>
       </div>
     </div>
