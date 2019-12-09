@@ -9,16 +9,29 @@
 </article>
 
 <section>
-  <%= form_with(model: @comment) do |form| %>
+  <%= form_with(model: @comment, url: comment_book_path(@book)) do |form| %>
     <div class="field">
       <%= form.label :title, '標題', class: 'label' %>
       <%= form.text_field :title, class: 'input' %>
     </div>
     <div class="field">
-      <%= form.label :title, '內文', class: 'label' %>
-      <%= form.text_area :title, class: 'textarea' %>
+      <%= form.label :content, '內文', class: 'label' %>
+      <%= form.text_area :content, class: 'textarea' %>
     </div>
     <%= form.submit '送出', class: 'button is-primary' %>
+  <% end %>
+</section>
+
+<section>
+  <% @book.comments.each do |comment| %>
+    <article class="message is-dark">
+      <div class="message-body">
+        <p>標題：<%= comment.title %></p>
+        內文：
+        <%= simple_format(comment.content) %>
+        <small><%= comment.created_at %></small>
+      </div>
+    </article>
   <% end %>
 </section>
 
