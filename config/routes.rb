@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     root 'books#index' 
     resources :books
     resources :publishers, except: [:show]
+    resources :categories, except: [:show]
   end
 end

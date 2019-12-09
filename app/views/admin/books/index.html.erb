@@ -28,8 +28,10 @@
         </div>
 
         <div class="content">
-          <%= book.description %>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          <div class="is-size-7">
+            <time datetime="<%= book.published_at %>"><%= book.published_at %></time>
+          </div>
+          <p><%= strip_tags(book.description).truncate(20) %></p>
           <hr>
           <%= link_to "編輯", edit_admin_book_path(book), class: 'button is-light is-small' %>
           <%= link_to "刪除", admin_book_path(book), method: :delete, class: 'button is-danger is-small', data: { confirm: '確認刪除?!' } %>

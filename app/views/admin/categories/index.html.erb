@@ -1,0 +1,29 @@
+<h1 class="title">
+  <i class="fas fa-folder-open"></i> 分類列表
+  <%= link_to "新增分類", new_admin_category_path, class: 'button is-danger' %>
+</h1>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <td>分類</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td>
+          <%= link_to "編輯", edit_admin_category_path(category), class: 'button is-small is-light' %>
+          <%= link_to "刪除", admin_category_path(category), method: :delete, data: { confirm: '確定刪除?!' }, class: 'button is-small is-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2"></td>
+    </tr>
+  </tfoot>
+</table>
