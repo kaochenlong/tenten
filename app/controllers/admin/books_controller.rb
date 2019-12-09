@@ -1,8 +1,5 @@
-class Admin::BooksController < ApplicationController
-  before_action :authenticate_user!
+class Admin::BooksController < Admin::BaseController
   before_action :find_book, only: [:show, :edit, :update, :destroy]
-
-  layout 'backend'
 
   def index
     @books = Book.available
@@ -64,3 +61,4 @@ class Admin::BooksController < ApplicationController
                                  :publisher_id)
   end
 end
+
