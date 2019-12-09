@@ -9,5 +9,6 @@ class Book < ApplicationRecord
   has_one_attached :cover_image
 
   # scopes
+  default_scope { with_attached_cover_image }
   scope :available, -> { where(on_sell: true).where('list_price > 0') }
 end

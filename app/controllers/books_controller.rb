@@ -3,7 +3,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.available
-                 .with_attached_cover_image
                  .page(params[:page])
                  .per(10)
 
