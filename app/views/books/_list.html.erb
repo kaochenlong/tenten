@@ -1,0 +1,37 @@
+<section class="column is-10">
+  <h1 class="title"><i class="fas fa-book"></i> 書本列表</h1>
+  <%= paginate books %>
+  <section class="columns is-multiline">
+    <% books.each do |book| %>
+      <div class="column is-4">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <%= cover_image_tag book, width: 300, height: 200, dummy_img: true %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4"><%= book.title %></p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+
+            <div class="content">
+              <%= book.description %>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              <hr>
+              <%= link_to "放到購物車", '#', class: 'button is-light is-small' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</section>
