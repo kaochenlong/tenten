@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   # relationships
   belongs_to :publisher
   has_one_attached :cover_image
+  has_many :comments
 
   # scopes
   default_scope { with_attached_cover_image }
