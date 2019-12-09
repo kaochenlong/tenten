@@ -1,4 +1,6 @@
 class PublishersController < ApplicationController
+  layout 'book'
+
   def show
     @publishers = Publisher.available
 

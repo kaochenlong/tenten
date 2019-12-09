@@ -7,7 +7,9 @@
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <%= cover_image_tag book, width: 300, height: 200, dummy_img: true %>
+              <%= link_to book do %>
+                <%= cover_image_tag book, width: 300, height: 200, dummy_img: true %>
+              <% end %>
             </figure>
           </div>
           <div class="card-content">

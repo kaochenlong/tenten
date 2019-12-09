@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TentenBookstore</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/frontend/navbar' %>
+    <section class="section">
+      <div class="container">
+        <%= render 'shared/flash' if notice %>
+        <section class="columns is-fullheight">
+          <%= render 'shared/frontend/menu', publishers: Publisher.available %>
+          <%= yield %>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>
