@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :publishers, only: [:show]
+  resources :categories, only: [:show]
 
   root 'books#index'
 

@@ -3,9 +3,9 @@
   分類
   </p>
   <ul class="menu-list">
-    <li><a>Web 技術</a></li>
-    <li><a>版本控制</a></li>
-    <li><a>資料庫</a></li>
+    <% categories.each do |category| %>
+      <li><%= link_to category.title, category %></a></li>
+    <% end %>
   </ul>
 
   <p class="menu-label">

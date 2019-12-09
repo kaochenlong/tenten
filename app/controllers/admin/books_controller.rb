@@ -58,7 +58,8 @@ class Admin::BooksController < Admin::BaseController
                                  :cover_image, 
                                  :on_sell, 
                                  :published_at, 
-                                 :publisher_id)
+                                 :publisher_id,
+                                 :category_id)
   end
 end
 

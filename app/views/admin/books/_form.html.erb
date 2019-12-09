@@ -16,10 +16,18 @@
   </div>
 
   <div class="columns">
-    <div class="column is-8">
+    <div class="column is-5">
       <div class="field">
         <%= form.label :title, '標題', class: 'label' %>
         <%= form.text_field :title, class: 'input' %>
+      </div>
+    </div>
+    <div class="column is-3">
+      <div class="field">
+        <%= form.label :category_id, '分類', class: 'label' %>
+        <div class="select is-fullwidth">
+          <%= form.collection_select :category_id, Category.all, :id, :title %>
+        </div>
       </div>
     </div>
     <div class="column is-4">
