@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :show]
   resources :publishers, only: [:show]
+  resources :comments, only: [:create]
 
   root 'books#index'
 
