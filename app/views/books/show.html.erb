@@ -1,5 +1,12 @@
 <h1 class="title">書名：<%= @book.title %></h1>
 
+<div data-controller="fav" data-fav-id="<%= params[:id] %>">
+  <a href="#" data-action="fav#toggle" class="button">
+    <i class="far fa-heart" data-target="fav.icon"></i> 
+  </a>
+</div>
+
+<hr>
 <figure class="image">
   <%= cover_image_tag @book, dummy_img: true %>
 </figure>

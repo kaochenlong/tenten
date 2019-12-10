@@ -9,6 +9,8 @@ class Book < ApplicationRecord
   belongs_to :category
   has_one_attached :cover_image
   has_many :comments
+  has_many :favorites
+  has_many :users, through: :favorites
 
   # scopes
   default_scope { with_attached_cover_image }
