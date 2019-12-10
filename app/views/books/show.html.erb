@@ -23,15 +23,6 @@
 </section>
 
 <section>
-  <% @book.comments.each do |comment| %>
-    <article class="message is-dark">
-      <div class="message-body">
-        <p>標題：<%= comment.title %></p>
-        內文：
-        <%= simple_format(comment.content) %>
-        <small><%= comment.created_at %></small>
-      </div>
-    </article>
-  <% end %>
+  <%= render @book.comments %>
 </section>
 
