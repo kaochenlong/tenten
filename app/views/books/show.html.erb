@@ -9,7 +9,7 @@
 </article>
 
 <section>
-  <%= form_with(model: @comment, url: comment_book_path(@book)) do |form| %>
+  <%= form_with(model: @comment, url: comment_book_path(@book), id: 'comment_form') do |form| %>
     <div class="field">
       <%= form.label :title, '標題', class: 'label' %>
       <%= form.text_field :title, class: 'input' %>
@@ -22,7 +22,7 @@
   <% end %>
 </section>
 
-<section>
-  <%= render @book.comments %>
+<section id="comment_area">
+  <%= render @comments %>
 </section>
 
