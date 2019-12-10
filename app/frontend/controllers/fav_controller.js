@@ -12,10 +12,9 @@ export default class extends Controller {
 
     button.classList.add('is-loading');
 
-    ax.post(`/api/books/${id}/favorite`, {})
+    ax.post(`/api/books/${id}/favorite`)
       .then(function(response) {
         let favorited = response.data.favorited;
-        console.log(response.data);
 
         if (favorited) {
           icon.classList.remove('far');
