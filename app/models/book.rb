@@ -15,4 +15,9 @@ class Book < ApplicationRecord
   # scopes
   default_scope { with_attached_cover_image }
   scope :available, -> { where(on_sell: true).where('list_price > 0') }
+
+  def favorited_by?(u)
+    favorites.exists?(user: u)
+  end
 end
+
