@@ -1,16 +1,16 @@
-<h1 class="title">書名：<%= @book.title %></h1>
+<h1 class="title">
+  書名：<%= @book.title %>
+  <span data-controller="fav" data-fav-id="<%= params[:id] %>">
+    <a href="#" data-action="fav#toggle" class="button is-rounded is-primary">
+      <% if user_signed_in? && @book.favorited_by?(current_user) %>
+        <i class="fas fa-heart" data-target="fav.icon"></i> 
+      <% else %>
+        <i class="far fa-heart" data-target="fav.icon"></i> 
+      <% end %>
+    </a>
+  </span>
+</h1>
 
-<div data-controller="fav" data-fav-id="<%= params[:id] %>">
-  <a href="#" data-action="fav#toggle" class="button is-rounded is-primary">
-    <% if user_signed_in? && @book.favorited_by?(current_user) %>
-      <i class="fas fa-heart" data-target="fav.icon"></i> 
-    <% else %>
-      <i class="far fa-heart" data-target="fav.icon"></i> 
-    <% end %>
-  </a>
-</div>
-
-<hr>
 <figure class="image">
   <%= cover_image_tag @book, dummy_img: true %>
 </figure>
