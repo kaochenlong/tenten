@@ -6,6 +6,7 @@ ASTROCamp 上課練習範例
 
 - Ruby 2.6.3
 - Rails 6.0.1
+- PostgreSQL (WIP)
 - Bulma CSS
 - Stimulus.js
 
