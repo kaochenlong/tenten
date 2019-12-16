@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# 商品可以放到購物車裡，也可以再拿出來。
 # 每個 Cart Item 都可以計算它自己的金額（小計）。
 # 可以計算整台購物車的總消費金額。
 
@@ -20,6 +19,25 @@ RSpec.describe Cart, type: :model do
 
       expect(cart.items.count).to be 2
       expect(cart.items.first.quantity).to be 3
+    end
+    
+    it "商品可以放到購物車裡，也可以再拿出來" do
+      cart = Cart.new
+      p1 = Publisher.create(name: 'kk store')
+      c1 = Category.create(title: 'ruby book')
+      b1 = Book.create(
+        title: 'hello', 
+        isbn: 'aaa', 
+        isbn13: 'bbb', 
+        list_price: 100, 
+        sell_price: 50, 
+        page_num: 100,
+        publisher: p1, 
+        category: c1
+      )
+
+      cart.add_item(b1.id)
+      expect(cart.items.first.product).to be_a Book
     end
   end
 end
