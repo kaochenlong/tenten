@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# 每個 Cart Item 都可以計算它自己的金額（小計）。
+
 # 可以計算整台購物車的總消費金額。
 
 RSpec.describe Cart, type: :model do
