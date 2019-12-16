@@ -1,6 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
+  context "進階功能" do
+    it "可以將購物車內容轉換成 Hash 並存到 Session 裡" do
+      cart = Cart.new
+
+      book1 = create(:book)
+      book2 = create(:book)
+
+      3.times { cart.add_item(book1.id) }
+      2.times { cart.add_item(book2.id) }
+
+      cart_hash = {
+        "items" => [
+          {"product_id" => 1, "quantity" => 3}, 
+          {"product_id" => 2, "quantity" => 2}
+        ]
+      }
+
+      expect(cart.serialize).to eq cart_hash
+    end
+
+# 也可以存放在 Session 的內容（Hash 格式），還原成購物車的內容。
+  end
+
   context "基本功能" do
     it "可以把商品丟到到購物車裡，然後購物車裡就有東西了" do
       cart = Cart.new  # PORO

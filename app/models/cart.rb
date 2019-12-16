@@ -28,5 +28,13 @@ class Cart
     # end
     # return total
   end
+
+  def serialize
+    result = @items.map { |item| 
+      {"product_id" => item.product_id, "quantity" => item.quantity}
+    }
+
+    { "items" => result }
+  end
 end
 
