@@ -21,7 +21,19 @@ RSpec.describe Cart, type: :model do
       expect(cart.serialize).to eq cart_hash
     end
 
-# 也可以存放在 Session 的內容（Hash 格式），還原成購物車的內容。
+    it "也可以存放在 Session 的內容（Hash 格式），還原成購物車的內容" do
+      cart_hash = {
+        "items" => [
+          {"product_id" => 1, "quantity" => 3}, 
+          {"product_id" => 2, "quantity" => 2}
+        ]
+      }
+
+      cart = Cart.from_hash(cart_hash)
+      
+      expect(cart.items.count).to be 2
+      expect(cart.items.first.quantity).to be 3
+    end
   end
 
   context "基本功能" do

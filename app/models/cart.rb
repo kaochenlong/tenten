@@ -1,8 +1,8 @@
 class Cart
   attr_reader :items
 
-  def initialize
-    @items = []
+  def initialize(items = [])
+    @items = items
   end
 
   def add_item(product_id)
@@ -35,6 +35,19 @@ class Cart
     }
 
     { "items" => result }
+  end
+
+  def self.from_hash(hash = nil)
+    if hash && hash["items"]
+      items = []
+      hash["items"].each do |item|
+        items << CartItem.new(item["product_id"], item["quantity"])
+      end
+
+      Cart.new(items)
+    else
+      Cart.new
+    end
   end
 end
 
