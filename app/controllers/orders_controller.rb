@@ -16,8 +16,9 @@ class OrdersController < ApplicationController
       # 2. 進入付款頁
       redirect_to root_path, notice: '訂單已成立！'
     else
-      flash[:notice] = '欄位發生錯誤'
-      render 'carts/checkout'
+      flash[:notice] = @order.errors.full_messages
+      redirect_to root_path
+      # render 'carts/checkout'
     end
   end
 
