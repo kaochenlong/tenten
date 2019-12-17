@@ -1,0 +1,28 @@
+<h1 class="title">結帳</h1>
+
+<%= render 'cart', cart: current_cart %>
+
+<%= form_with(model: @order) do |form| %>
+  <div class="field">
+    <%= form.label :recipient, '收件人', class: 'label' %>
+    <%= form.text_field :recipient, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tel, '電話', class: 'label' %>
+    <%= form.text_field :tel, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address, '地址', class: 'label' %>
+    <%= form.text_field :address, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note, '說明', class: 'label' %>
+    <%= form.text_area :note, class: 'textarea' %>
+  </div>
+
+  <%= form.submit '確認', class: 'button is-primary' %>
+<% end %>
+

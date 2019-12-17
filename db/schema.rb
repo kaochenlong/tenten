@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_043125) do
+ActiveRecord::Schema.define(version: 2019_12_17_062334) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,30 @@ ActiveRecord::Schema.define(version: 2019_12_10_043125) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "book_id", null: false
+    t.integer "quantity"
+    t.decimal "sell_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_order_items_on_book_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "recipient"
+    t.string "tel"
+    t.string "address"
+    t.text "note"
+    t.string "state"
+    t.string "num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "publishers", force: :cascade do |t|
     t.string "name"
     t.string "tel"
@@ -115,4 +139,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_043125) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "books"
   add_foreign_key "favorites", "users"
+  add_foreign_key "order_items", "books"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
 end

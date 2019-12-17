@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   layout 'book'
+  before_action :authenticate_user!, only: [:checkout]
 
   def add
     current_cart.add_item(params[:id])
@@ -9,6 +10,10 @@ class CartsController < ApplicationController
   end
 
   def show
+  end
+
+  def checkout
+    @order = Order.new
   end
 
   def destroy
