@@ -17,6 +17,8 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'paranoia', '~> 2.4', '>= 2.4.2'
+gem 'aasm', '~> 5.0', '>= 5.0.6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
