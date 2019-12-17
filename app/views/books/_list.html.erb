@@ -31,7 +31,7 @@
               </div>
               <p class="content"><%= strip_tags(book.description).truncate(20) %></p>
               <hr>
-              <%= link_to "放到購物車", '#', class: 'button is-light is-small' %>
+              <%= link_to "放到購物車", add_cart_path(book), class: 'button is-light is-small', method: 'post' %>
             </div>
           </div>
         </div>

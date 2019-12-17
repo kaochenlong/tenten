@@ -19,6 +19,9 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <a href="#" class="button">
+            <i class="fas fa-shopping-cart"></i> (<%= current_cart.items.count %>)
+          </a>
           <% if user_signed_in? %>
             <%= link_to current_user.email, edit_user_registration_path, class: 'button' %>
             <%= link_to "登出", destroy_user_session_path, method: 'delete', class: 'button is-light' %>
