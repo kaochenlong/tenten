@@ -1,0 +1,9 @@
+<h1 class="title"><i class="fas fa-shopping-cart"></i> 購物車</h1>
+
+<%= link_to "清空購物車", cart_path, method: 'delete', class: 'button is-small is-light' if not current_cart.empty? %>
+
+<%= render 'cart', cart: current_cart %>
+
+<%= link_to "繼續選購", root_path, class: 'button is-primary' %>
+<%= link_to "結帳", '#', class: 'button is-danger' if not current_cart.empty? %>
+

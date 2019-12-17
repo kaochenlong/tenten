@@ -1,42 +1,40 @@
-<section class="column is-10">
-  <h1 class="title"><i class="fas fa-book"></i> 書本列表</h1>
-  <%= paginate books %>
-  <section class="columns is-multiline">
-    <% books.each do |book| %>
-      <div class="column is-4">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image">
-              <%= link_to book do %>
-                <%= cover_image_tag book, width: 300, height: 200, dummy_img: true %>
-              <% end %>
-            </figure>
+<h1 class="title"><i class="fas fa-book"></i> 書本列表</h1>
+<%= paginate books %>
+<section class="columns is-multiline">
+  <% books.each do |book| %>
+    <div class="column is-4">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <%= link_to book do %>
+              <%= cover_image_tag book, width: 300, height: 200, dummy_img: true %>
+            <% end %>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4"><%= book.title %></p>
+              <p class="subtitle is-6">@johnsmith</p>
+            </div>
           </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4"><%= book.title %></p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
 
-            <div class="content">
-              <div class="is-size-7">
-                <time datetime="<%= book.published_at %>"><%= book.published_at %></time>
-              </div>
-              <p class="content"><%= strip_tags(book.description).truncate(20) %></p>
-              <hr>
-              <%= link_to "放到購物車", add_cart_path(book), class: 'button is-light is-small', method: 'post' %>
+          <div class="content">
+            <div class="is-size-7">
+              <time datetime="<%= book.published_at %>"><%= book.published_at %></time>
             </div>
+            <p class="content"><%= strip_tags(book.description).truncate(20) %></p>
+            <hr>
+            <%= link_to "放到購物車", add_cart_path(book), class: 'button is-light is-small', method: 'post' %>
           </div>
         </div>
       </div>
-    <% end %>
-  </section>
+    </div>
+  <% end %>
 </section>
 

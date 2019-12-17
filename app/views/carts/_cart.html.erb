@@ -1,0 +1,35 @@
+<% if cart.empty? %>
+  <article class="message">
+    <div class="message-body">
+      目前購物車是空的喔！
+    </div>
+  </article>
+<% else %>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>商品名稱</th>
+        <th>數量</th>
+        <th>單價</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart.items.each do |item| %>
+      <tr>
+        <td><%= item.product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.sell_price %></td>
+        <td><%= item.total_price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">總價</td>
+        <td><%= cart.total_price %></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+
