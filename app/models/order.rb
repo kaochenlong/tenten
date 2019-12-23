@@ -9,6 +9,10 @@ class Order < ApplicationRecord
 
   before_save :generate_num
 
+  def total_price
+    order_items.reduce(0) { |sum, item| sum + item.sell_price }.to_i
+  end
+
   aasm column: 'state', no_direct_assignment: true do
     state :pending, initial: true
     state :paid, :delivered, :cancelled

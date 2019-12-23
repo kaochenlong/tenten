@@ -10,6 +10,7 @@ module TentenBookstore
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.time_zone = 'Taipei'
 
     config.generators do |g|
       g.helper false

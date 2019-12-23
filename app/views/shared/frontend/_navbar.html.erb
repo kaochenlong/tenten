@@ -18,20 +18,29 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <%= link_to cart_path, class: 'button' do %>
-            <i class="fas fa-shopping-cart"></i> (<%= current_cart.items.count %>)
-          <% end %>
 
-          <% if user_signed_in? %>
-            <%= link_to current_user.email, edit_user_registration_path, class: 'button' %>
-            <%= link_to "登出", destroy_user_session_path, method: 'delete', class: 'button is-light' %>
-          <% else %>
-            <%= link_to "註冊", new_user_registration_path, class: 'button is-primary' %>
-            <%= link_to "登入", new_user_session_path, class: 'button is-light' %>
-          <% end %>
-        </div>
+        <%= link_to cart_path, class: 'button' do %>
+          <i class="fas fa-shopping-cart"></i> (<%= current_cart.items.count %>)
+        <% end %>
+
+        <% if user_signed_in? %>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <%= current_user.email %>
+            </a>
+
+            <div class="navbar-dropdown">
+              <%= link_to "我的訂單", orders_path, class: 'navbar-item' %>
+              <hr class="navbar-divider">
+              <%= link_to "登出", destroy_user_session_path, method: 'delete', class: 'navbar-item' %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "註冊", new_user_registration_path, class: 'button is-primary' %>
+          <%= link_to "登入", new_user_session_path, class: 'button is-light' %>
+        <% end %>
       </div>
     </div>
+  </div>
   </div>
 </nav>
