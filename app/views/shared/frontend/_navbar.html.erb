@@ -17,10 +17,9 @@
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
-
+      <div class="navbar-item" data-controller="cart" data-action="ajax:success@window->cart#update">
         <%= link_to cart_path, class: 'button' do %>
-          <i class="fas fa-shopping-cart"></i> (<%= current_cart.items.count %>)
+          <i class="fas fa-shopping-cart"></i> (<span data-target="cart.items"><%= current_cart.items.count %></span>)
         <% end %>
 
         <% if user_signed_in? %>

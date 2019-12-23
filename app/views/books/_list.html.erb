@@ -24,13 +24,13 @@
             </div>
           </div>
 
-          <div class="content">
+          <div class="content" data-controller="book">
             <div class="is-size-7">
               <time datetime="<%= book.published_at %>"><%= book.published_at %></time>
             </div>
             <p class="content"><%= strip_tags(book.description).truncate(20) %></p>
             <hr>
-            <%= link_to "放到購物車", add_cart_path(book), class: 'button is-light is-small', method: 'post' %>
+            <%= link_to "放到購物車", add_cart_path(book), remote: true, method: 'post', class: 'button is-light is-small' %>
           </div>
         </div>
       </div>

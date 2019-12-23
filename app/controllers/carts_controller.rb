@@ -6,7 +6,8 @@ class CartsController < ApplicationController
     current_cart.add_item(params[:id])
     session['cart9527'] = current_cart.serialize
 
-    redirect_to root_path, notice: '成功加入購物車'
+    render json: {items: current_cart.items.count}
+    # redirect_to root_path, notice: '成功加入購物車'
   end
 
   def show
