@@ -34,9 +34,21 @@ class OrdersController < ApplicationController
 
   def cancel
     order = current_user.orders.find_by(num: params[:id])
-    order.cancel! if order.may_cancel?
-    # TODO: 如果已付款 -> 退款
-    redirect_to orders_path, notice: "訂單#{order.num}已取消"
+
+    if order.paid?
+      gateway.transaction.void(order.transaction_id)
+      result = gateway.transaction.refund(order.transaction_id)
+
+      if result.success?
+        order.cancel! if order.may_cancel?
+        redirect_to orders_path, notice: "訂單#{order.num}已取消並完成退款"
+      else
+        redirect_to orders_path, notice: "訂單#{order.num}退款發生錯誤"
+      end
+    else
+      order.cancel! if order.may_cancel?
+      redirect_to orders_path, notice: "訂單#{order.num}已取消"
+    end
   end
 
   def create
