@@ -19,6 +19,10 @@ class Order < ApplicationRecord
 
     event :pay do
       transitions from: :pending, to: :paid
+
+      before do |args|
+        self.transaction_id = args[:transaction_id]
+      end
     end
 
     event :deliver do

@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     )
 
     if result.success?
-      order.pay!
+      order.pay!(transaction_id: result.transaction.id)
       redirect_to orders_path, notice: "交易完成!"
     else
       redirect_to orders_path, notice: "交易發生錯誤! #{result.transaction.status}"

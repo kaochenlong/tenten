@@ -6,5 +6,5 @@ require("@rails/activestorage").start()
 import '../stylesheets'
 import '../scripts'
 
-
 import "controllers"
+
