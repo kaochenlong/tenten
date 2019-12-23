@@ -4,3 +4,7 @@ google_app_secret: 'YOUR APP SECRET'
 facebook_app_id: 'YOUR APP ID'
 facebook_app_secret: 'YOUR APP SECRET'
 
+braintree_merchant_id: ''
+braintree_public_key: ''
+braintree_private_key: ''
+
