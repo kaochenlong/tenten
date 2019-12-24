@@ -10,6 +10,8 @@
     "braintree-web-drop-in": "^1.21.0",
     "bulma": "^0.8.0",
     "flatpickr": "^4.6.3",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"
   },
