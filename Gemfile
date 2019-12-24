@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'rails', '~> 6.0.2'
-# gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
@@ -25,6 +24,7 @@ gem "braintree", "~> 2.100.0"
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'foreman', '~> 0.86.0'
+  # gem 'sqlite3', '~> 1.4'
 
   gem 'rspec-rails', '~> 3.9'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
