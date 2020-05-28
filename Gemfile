@@ -12,7 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
